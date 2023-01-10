@@ -1,14 +1,18 @@
 .bannerParentDiv {
   padding-top: 4em;
 }
-.bannerParentDiv .bannerChildDiv {
-}
+/* .bannerParentDiv .bannerChildDiv {
+} */
 .bannerParentDiv .bannerChildDiv .menuBar {
   display: flex;
+  justify-content: space-between;
   padding: 10px 16px 10px 16px;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 .bannerParentDiv .bannerChildDiv .menuBar span {
+  cursor: pointer;
 }
 
 .bannerParentDiv .bannerChildDiv .menuBar .categoryMenu span {
@@ -16,18 +20,23 @@
   font-weight: bolder;
 }
 
-.bannerParentDiv .bannerChildDiv .menuBar .otherQuickOptions {
-}
+/* .bannerParentDiv .bannerChildDiv .menuBar .otherQuickOptions {
+} */
 .bannerParentDiv .bannerChildDiv .menuBar .otherQuickOptions span {
   padding: 10px;
+}
+.bannerParentDiv .bannerChildDiv .menuBar .otherQuickOptions span:hover {
+  color: rgb(47, 197, 147);
 }
 
 .bannerChildDiv .banner {
   position: relative;
-  width: 100vw;
+  /* width: 100%; */
+  box-sizing: border-box;
 }
 .bannerChildDiv .banner img{
-  width: 100vw;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 @media only screen and (max-width: 700px) {

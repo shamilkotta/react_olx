@@ -1,10 +1,10 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import './Create.css';
 import Header from '../Header/Header';
 
 const Create = () => {
   return (
-    <Fragment>
+    <>
       <Header />
       <card>
         <div className="centerDiv">
@@ -44,7 +44,7 @@ const Create = () => {
           </form>
         </div>
       </card>
-    </Fragment>
+    </>
   );
 };
 

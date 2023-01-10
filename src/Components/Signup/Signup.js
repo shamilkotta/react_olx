@@ -7,7 +7,7 @@ export default function Signup() {
   return (
     <div>
       <div className="signupParentDiv">
-        <img width="200px" height="200px" src={Logo}></img>
+        <img width="200px" align="middle" height="200px" src={Logo}></img>
         <form>
           <label htmlFor="fname">Username</label>
           <br />
