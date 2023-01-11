@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/static/css/main.e9885399.chunk.css",
-    "main.js": "/static/js/main.7bd1285c.chunk.js",
-    "main.js.map": "/static/js/main.7bd1285c.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.aa7b655b.js",
-    "runtime-main.js.map": "/static/js/runtime-main.aa7b655b.js.map",
-    "static/js/2.0c6041e0.chunk.js": "/static/js/2.0c6041e0.chunk.js",
-    "static/js/2.0c6041e0.chunk.js.map": "/static/js/2.0c6041e0.chunk.js.map",
-    "index.html": "/index.html",
-    "static/css/main.e9885399.chunk.css.map": "/static/css/main.e9885399.chunk.css.map",
-    "static/js/2.0c6041e0.chunk.js.LICENSE.txt": "/static/js/2.0c6041e0.chunk.js.LICENSE.txt",
-    "static/media/olx-logo.b3f099a2.png": "/static/media/olx-logo.b3f099a2.png"
+    "main.css": "/react_olx/static/css/main.e9885399.chunk.css",
+    "main.js": "/react_olx/static/js/main.7bd1285c.chunk.js",
+    "main.js.map": "/react_olx/static/js/main.7bd1285c.chunk.js.map",
+    "runtime-main.js": "/react_olx/static/js/runtime-main.ea6f32b4.js",
+    "runtime-main.js.map": "/react_olx/static/js/runtime-main.ea6f32b4.js.map",
+    "static/js/2.6e1339d3.chunk.js": "/react_olx/static/js/2.6e1339d3.chunk.js",
+    "static/js/2.6e1339d3.chunk.js.map": "/react_olx/static/js/2.6e1339d3.chunk.js.map",
+    "index.html": "/react_olx/index.html",
+    "static/css/main.e9885399.chunk.css.map": "/react_olx/static/css/main.e9885399.chunk.css.map",
+    "static/js/2.6e1339d3.chunk.js.LICENSE.txt": "/react_olx/static/js/2.6e1339d3.chunk.js.LICENSE.txt",
+    "static/media/olx-logo.b3f099a2.png": "/react_olx/static/media/olx-logo.b3f099a2.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.aa7b655b.js",
-    "static/js/2.0c6041e0.chunk.js",
+    "static/js/runtime-main.ea6f32b4.js",
+    "static/js/2.6e1339d3.chunk.js",
     "static/css/main.e9885399.chunk.css",
     "static/js/main.7bd1285c.chunk.js"
   ]
