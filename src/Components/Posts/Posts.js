@@ -1,9 +1,30 @@
-import React from 'react';
+import { collection, getDocs } from 'firebase/firestore';
+import React, { useContext, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { PostContext } from '../../App';
 
 import Heart from '../../assets/Heart';
+import { db } from '../../firebase/config';
 import './Post.css';
 
 function Posts() {
+
+  const [posts, setPosts] = useState([]);
+  const navigate = useNavigate();
+  const { setPost } = useContext(PostContext);
+
+  useEffect(() => {
+    getDocs(collection(db, "posts"))
+      .then((data) => {
+        let arr = [];
+        data.forEach((ele) => {
+          arr.push(ele.data());
+        });
+        setPosts([...arr]);
+      });
+
+  }, []);
+
 
   return (
     <div className="postParentDiv">
@@ -13,24 +34,33 @@ function Posts() {
           <span>View more</span>
         </div>
         <div className="cards">
-          <div
-            className="card"
-          >
-            <div className="favorite">
-              <Heart></Heart>
-            </div>
-            <div className="image">
-              <img src="../../../Images/R15V3.jpg" alt="" />
-            </div>
-            <div className="content">
-              <p className="rate">&#x20B9; 250000</p>
-              <span className="kilometer">Two Wheeler</span>
-              <p className="name"> YAMAHA R15V3</p>
-            </div>
-            <div className="date">
-              <span>Tue May 04 2021</span>
-            </div>
-          </div>
+          {
+            posts.map((ele) => 
+              <div
+                onClick={() => {
+                  setPost(ele);
+                  navigate("/viewpost");
+                }}
+                className="card"
+              >
+                <div className="favorite">
+                  <Heart></Heart>
+                </div>
+                <div className="image">
+                  <img src={ele.image} alt="" />
+                </div>
+                <div className="content">
+                  <p className="rate">&#x20B9; {ele.price}</p>
+                  <span className="kilometer">{ele.category}</span>
+                  <p className="name"> {ele.name}</p>
+                </div>
+                <div className="date">
+                  <span>{ele.createdAt}</span>
+                </div>
+              </div>
+            )
+          }
+
         </div>
       </div>
       <div className="recommendations">
@@ -38,22 +68,33 @@ function Posts() {
           <span>Fresh recommendations</span>
         </div>
         <div className="cards">
-          <div className="card">
-            <div className="favorite">
-              <Heart></Heart>
-            </div>
-            <div className="image">
-              <img src="../../../Images/R15V3.jpg" alt="" />
-            </div>
-            <div className="content">
-              <p className="rate">&#x20B9; 250000</p>
-              <span className="kilometer">Two Wheeler</span>
-              <p className="name"> YAMAHA R15V3</p>
-            </div>
-            <div className="date">
-              <span>10/5/2021</span>
-            </div>
-          </div>
+          {
+            posts.map((ele) =>
+              <div
+                onClick={() => {
+                  setPost(ele);
+                  navigate("/viewpost");
+                }}
+                className="card"
+              >
+                <div className="favorite">
+                  <Heart></Heart>
+                </div>
+                <div className="image">
+                  <img src={ele.image} alt="" />
+                </div>
+                <div className="content">
+                  <p className="rate">&#x20B9; {ele.price}</p>
+                  <span className="kilometer">{ele.category}</span>
+                  <p className="name"> {ele.name}</p>
+                </div>
+                <div className="date">
+                  <span>{ele.createdAt}</span>
+                </div>
+              </div>
+            )
+          }
+
         </div>
       </div>
     </div>
