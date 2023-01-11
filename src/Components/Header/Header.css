@@ -117,6 +117,12 @@
 
 .loginPage a{
   text-decoration: none;
+  color: #002f34;
+}
+
+.logoutBtn span {
+  cursor: pointer;
+  color: #002f34;
 }
 
 .sellMenu {
