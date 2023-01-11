@@ -30,14 +30,12 @@ export default function Signup() {
     setError("");
   }, [data]);
 
-
-
   const handleSubmit = (e) => {
     setLoading(true);
     e.preventDefault();
     createUserWithEmailAndPassword(auth, data.email, data.password)
       .then(() => updateProfile(auth.currentUser, { displayName: data.name }))
-      .then(() => addDoc(collection(db, "users"), { user: auth.currentUser.uid, email: data.email, phone: data.phone }))
+      .then(() => addDoc(collection(db, "users"), { name: data.name, user: auth.currentUser.uid, email: data.email, phone: data.phone }))
       .then(() => {
         setData(initialData);
         setLoading(false);
