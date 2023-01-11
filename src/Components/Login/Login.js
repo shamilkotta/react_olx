@@ -1,38 +1,92 @@
-import React from 'react';
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+import React, { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
 import Logo from '../../olx-logo.png';
 import './Login.css';
 
+const initialData = {
+  email: "",
+  password: ""
+}
+
 function Login() {
+  const [data, setData] = useState(initialData);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const auth = getAuth();
+  const navigate = useNavigate();
+
+
+  useEffect(() => {
+    if (loading) setError("");
+  }, [loading]);
+
+  useEffect(() => {
+    setError("");
+  }, [data]);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setLoading(true);
+
+    signInWithEmailAndPassword(auth, data.email, data.password)
+      .then(() => {
+        setData(initialData);
+        setLoading(false);
+        navigate("/");
+      })
+      .catch((err) => {
+        setLoading(false);
+        if (err.code === 'auth/wrong-password') {
+          setError("Wrong credentials!");
+        } else if (err.code === 'auth/user-not-found') {
+          setError("Can't find the user");
+        } else {
+          setError("Something went wrong");
+        }
+      });
+  }
+
   return (
     <div>
       <div className="loginParentDiv">
-        <img width="200px" align="middle" height="200px" src={Logo}></img>
-        <form>
-          <label htmlFor="fname">Email</label>
+        <img alt='olx' width="200px" align="middle" height="200px" src={Logo}></img>
+        <form onSubmit={handleSubmit}>
+          <label htmlFor="email">Email</label>
           <br />
           <input
             className="input"
             type="email"
-            id="fname"
+            id="email"
             name="email"
-            defaultValue="John"
+            value={data.email}
+            onChange={(e) => { setData((prevs) => ({ ...prevs, email: e.target.value })); }}
+            required
           />
           <br />
-          <label htmlFor="lname">Password</label>
+          <label htmlFor="password">Password</label>
           <br />
           <input
             className="input"
             type="password"
-            id="lname"
+            id="password"
             name="password"
-            defaultValue="Doe"
+            value={data.password}
+            onChange={(e) => { setData((prevs) => ({ ...prevs, password: e.target.value })); }}
+            required
           />
           <br />
           <br />
-          <button>Login</button>
+          <p style={{ color: "red" }}>{error}</p>
+          {
+            loading ?
+              <button disabled>Loading...</button>
+              :
+              <button type='submit'>Login</button>
+          }
         </form>
-        <a>Signup</a>
+        <Link to="/signup">Signup</Link>
       </div>
     </div>
   );
