@@ -3,7 +3,7 @@
     width: 500px;
     padding: 10px 30px;
     position: absolute;
-    top: 50%;
+    top: 55%;
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 6px;
@@ -32,13 +32,22 @@
     color: whitesmoke;
     font-weight: 900;
   }
+
   .signupParentDiv button:hover {
     background-color: white;
     color: #002f34;
     border: 2px solid #002f34;
   }
+
+  button:disabled:hover {
+    /* border-color: transparent; */
+    background-color: #002f34;
+    color: whitesmoke;
+    font-weight: 900;
+  }
   
   .signupParentDiv a {
+    color: #002f34;
     display: flex;
     justify-content: center;
     cursor: pointer;
