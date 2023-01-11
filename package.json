@@ -37,6 +37,7 @@
       "last 1 safari version"
     ]
   },
+  "homepage": "https://shamilkotta.github.io/react_olx",
   "devDependencies": {
     "gh-pages": "^4.0.0"
   }
