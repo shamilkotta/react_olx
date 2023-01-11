@@ -16,13 +16,15 @@ function Header() {
 
   const handleSignout = () => {
     auth.signOut();
-  }
+  };
 
   return (
     <div className="headerParentDiv">
       <div className="headerChildDiv">
         <div className="brandName">
-          <OlxLogo></OlxLogo>
+          <Link to="/">
+            <OlxLogo></OlxLogo>
+          </Link>
         </div>
         <div className="placeSearch">
           <Search></Search>
@@ -56,13 +58,13 @@ function Header() {
           <hr />
         </div>
 
-        <div className="sellMenu">
+        <Link to="/create" className="sellMenu">
           <SellButton></SellButton>
           <div className="sellMenuContent">
             <SellButtonPlus></SellButtonPlus>
             <span>SELL</span>
           </div>
-        </div>
+        </Link>
       </div>
     </div>
   );
